@@ -1,0 +1,20 @@
+run = "gradle :app:assembleDebug"
+
+entrypoint = "settings.gradle.kts"
+
+hidden = ["*.jar", "build", ".gradle"]
+
+[nix]
+channel = "stable-24_05"
+
+[packager]
+language = "java"
+
+[packager.features]
+packageSearch = true
+
+[languages.kotlin]
+pattern = "**/*.{kt,kts,java}"
+
+[languages.kotlin.languageServer]
+start = ["kotlin-language-server"]
